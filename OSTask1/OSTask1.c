@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-	if (argc != 3) { return 0; }
+	if (argc != 3) { return -1; }
 
 	//getting the arguments from the commang line
 	char* firstFilePath = argv[1];
@@ -14,7 +14,11 @@ int main(int argc, char* argv[])
 	int secondFileFD = open(secondFilePath, O_RDONLY);
 
 	//check that we really find the files
-	if (firstFileFD == -1 || secondFileFD == -1) { return 0; }
+	if (firstFileFD == -1 || secondFileFD == -1) {
+		close(firstFileFD);
+		close(secondFileFD);
+		return -1;
+	}
 
 	//declare the buffer's for both of the files
 	char firstFileBuff, secondFileBuff;
