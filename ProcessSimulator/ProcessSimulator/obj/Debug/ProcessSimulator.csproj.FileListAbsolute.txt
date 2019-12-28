@@ -1,0 +1,6 @@
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\bin\Debug\ProcessSimulator.exe.config
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\bin\Debug\ProcessSimulator.exe
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\bin\Debug\ProcessSimulator.pdb
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.csprojAssemblyReference.cache
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.exe
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.pdb
