@@ -10,28 +10,38 @@ namespace ProcessSimulator
     {
         public override void Schedule(SimulatorModel simulator)
         {
-            int totalRunningTime = 0;
-            int waitingTime = 0;
             Array.Sort(simulator.ProcessArrivingTime, (x, y) => x.Item1.CompareTo(y.Item1));
+
+            if (simulator.ProcessArrivingTime.Length == 0) { return; }
+
+            int totalRunningTime = simulator.ProcessArrivingTime[0].Item1;
+            int waitingTime = 0;
             List<Tuple<int, int>> processesList = simulator.ProcessArrivingTime.ToList();
+            List<Tuple<int, int>> arrivingProcessesList = processesList;
 
             Tuple<int, int> currentProcess;
             while (processesList.Count != 0)
             {
-                //     if(!processesList.Contains(process)) { continue; }
-                currentProcess = processesList.FirstOrDefault();
+                currentProcess = arrivingProcessesList.FirstOrDefault();
                 turnAroundTime += currentProcess.Item2 + waitingTime;
                 totalRunningTime += currentProcess.Item2;
                 processesList.Remove(currentProcess);
-                var findNextProcess = from nextProcess in processesList
-                                      where nextProcess != null &&
-                                      nextProcess.Item1 <= totalRunningTime
-                                      select nextProcess;
-                processesList.Remove(findNextProcess);
+
+                arrivingProcessesList = (from nextProcess in processesList
+                                         where nextProcess != null &&
+                                         nextProcess.Item1 <= totalRunningTime
+                                         select nextProcess).ToList();
+
+                if (arrivingProcessesList.Count == 0) { continue; }
+
+                arrivingProcessesList.Sort((x, y) => y.Item1.CompareTo(x.Item1));
+
+                waitingTime = totalRunningTime - arrivingProcessesList.FirstOrDefault().Item1;
+
+                if (waitingTime < 0)
+                    waitingTime = 0;
             }
-
+            this.PrintResult("LCFS Not Preemptive", turnAroundTime, simulator.NumProc);
         }
-
-       
     }
 }

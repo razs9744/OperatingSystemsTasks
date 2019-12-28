@@ -8,7 +8,7 @@ namespace ProcessSimulator
 {
     public class FCFS : Scheduler
     {
-        
+
         public override void Schedule(SimulatorModel simulator)
         {
             int sigmaBurstTime = 0;
@@ -16,10 +16,10 @@ namespace ProcessSimulator
             int[] waitingTime = new int[simulator.NumProcBigThanZero];
             waitingTime[0] = 0;
 
-        //sort in ascending order 
-        Array.Sort(simulator.ProcessArrivingTime, (x, y) => x.Item1.CompareTo(y.Item1));
+            //sort in ascending order 
+            Array.Sort(simulator.ProcessArrivingTime, (x, y) => x.Item1.CompareTo(y.Item1));
 
-      
+
             // calculating waiting time  
             for (int i = 0; i < simulator.NumProcBigThanZero; i++)
             {
@@ -30,7 +30,7 @@ namespace ProcessSimulator
                     // Add burst time of previous processes  
 
                     // Find waiting time for current process 
-                    waitingTime[i] = compTime[i-1] - simulator.ProcessArrivingTime[i].Item1;
+                    waitingTime[i] = compTime[i - 1] - simulator.ProcessArrivingTime[i].Item1;
 
                     // If waiting time for a process is negative  
                     // that means the process does not wait at all  
