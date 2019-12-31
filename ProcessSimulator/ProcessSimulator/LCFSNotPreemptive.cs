@@ -22,7 +22,14 @@ namespace ProcessSimulator
             Tuple<int, int> currentProcess;
             while (processesList.Count != 0)
             {
-                currentProcess = arrivingProcessesList.FirstOrDefault();
+                if (arrivingProcessesList.Count != 0)
+                {
+                    currentProcess = arrivingProcessesList.FirstOrDefault();
+                }
+                else
+                {
+                    currentProcess = processesList.FirstOrDefault();
+                }
                 turnAroundTime += currentProcess.Item2 + waitingTime;
                 totalRunningTime += currentProcess.Item2;
                 processesList.Remove(currentProcess);

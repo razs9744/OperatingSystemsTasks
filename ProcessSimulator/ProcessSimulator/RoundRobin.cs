@@ -60,6 +60,7 @@ namespace ProcessSimulator
                 }
                 else //back to the beginning if new process ain't arrived
                 {
+                    currentTime++;
                     i = 0;
                 }
             }
