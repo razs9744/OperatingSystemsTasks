@@ -4,3 +4,5 @@ C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\bin\Debug\Process
 C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.csprojAssemblyReference.cache
 C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.exe
 C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.pdb
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\bin\Debug\NGenerics.dll
+C:\Users\sardas\source\repos\ProcessSimulator\ProcessSimulator\obj\Debug\ProcessSimulator.csproj.CopyComplete
